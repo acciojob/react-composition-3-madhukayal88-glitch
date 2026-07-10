@@ -6,15 +6,11 @@ function Tooltip({ text, children }) {
   return (
     <div
       className="tooltip"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
+      onMouseOver={() => setShowTooltip(true)}
+      onMouseOut={() => setShowTooltip(false)}
     >
       {children}
-      {showTooltip && (
-        <span className="tooltiptext">
-          {text}
-        </span>
-      )}
+      {showTooltip && <span className="tooltiptext">{text}</span>}
     </div>
   );
 }
