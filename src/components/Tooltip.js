@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Tooltip({ text, children }) {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
-    <div className="tooltip">
+    <div
+      className="tooltip"
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
       {children}
-      <span className="tooltiptext">{text}</span>
+      {showTooltip && (
+        <span className="tooltiptext">
+          {text}
+        </span>
+      )}
     </div>
   );
 }
