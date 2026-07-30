@@ -1,23 +1,22 @@
+@"
 import React, { useState } from 'react';
 
 function Tooltip({ text, children }) {
-  // State to control tooltip visibility
   const [isVisible, setIsVisible] = useState(false);
 
-  // Event handlers
-  const showTooltip = () => {
+  const handleMouseEnter = () => {
     setIsVisible(true);
   };
 
-  const hideTooltip = () => {
+  const handleMouseLeave = () => {
     setIsVisible(false);
   };
 
   return (
     <div 
       className="tooltip"
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {children}
       {isVisible && (
@@ -30,3 +29,4 @@ function Tooltip({ text, children }) {
 }
 
 export default Tooltip;
+"@ | Out-File -FilePath src\Tooltip.js -Encoding utf8
